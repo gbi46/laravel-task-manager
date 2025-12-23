@@ -1,6 +1,6 @@
-# Laravel Task Manager
+# Task Manager
 
-This repository contains a Laravel-based Task Manager application. Below are concise instructions to deploy and start the project locally using Docker Compose, and to run it for local development.
+This repository contains the Task Manager application and includes concise instructions to deploy and start the project locally using Docker Compose, and to run it for local development.
 
 **Prerequisites**
 - Docker (Engine + Compose)
@@ -36,7 +36,7 @@ This repository contains a Laravel-based Task Manager application. Below are con
 
    http://localhost:8080
 
-Notes: the project uses `DB_CONNECTION=sqlite` by default for local development. If you prefer MySQL, update `.env` and ensure the `db` service is running.
+Notes: the project uses `DB_CONNECTION=sqlite` by default for local development. If you prefer another DB, update `.env` accordingly and ensure the DB service is running.
 
 **Local development (without containers)**
 1. Install PHP, Composer, Node.js + npm on your host.
@@ -61,10 +61,7 @@ Notes: the project uses `DB_CONNECTION=sqlite` by default for local development.
 - Restart services: `docker compose restart`
 - Run artisan commands: `docker compose exec app php artisan <command>`
 
-**Deploy notes**
-- This README covers local/dev deployment. For production, use a proper orchestration and secrets management, run `composer install --no-dev`, and configure a production `docker-compose` or use your cloud provider.
-
-If you want, I can add environment-specific Compose files or CI/CD config for deployment.
+If you'd like, I can further shorten or expand this README, or add CI/CD/deployment files.
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
