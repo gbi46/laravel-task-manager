@@ -34,7 +34,7 @@ This repository contains the Task Manager application and includes concise instr
 
 6. Open the app in your browser:
 
-   http://localhost:8080
+   http://localhost:8000
 
 Notes: the project uses `DB_CONNECTION=sqlite` by default for local development. If you prefer another DB, update `.env` accordingly and ensure the DB service is running.
 
@@ -54,7 +54,7 @@ Notes: the project uses `DB_CONNECTION=sqlite` by default for local development.
 
 4. Serve the app locally:
 
-   php artisan serve --host=0.0.0.0 --port=8000
+   php artisan serve --host=0.0.0.0 --port=8080
 
 **Useful commands**
 - Tail logs: `docker compose logs -f`
