@@ -1,3 +1,70 @@
+# Laravel Task Manager
+
+This repository contains a Laravel-based Task Manager application. Below are concise instructions to deploy and start the project locally using Docker Compose, and to run it for local development.
+
+**Prerequisites**
+- Docker (Engine + Compose)
+- Git
+- Windows PowerShell (or your preferred shell)
+
+**Quick start (Docker)**
+1. Clone the repo:
+
+   git clone git@github.com:gbi46/laravel-task-manager.git
+   cd laravel-task-manager
+
+2. Copy environment file and adjust if needed:
+
+   cp .env.example .env
+   # If you use SQLite locally, ensure DB_DATABASE points to database/database.sqlite
+
+3. Create local sqlite file (optional if using SQLite):
+
+   mkdir database
+   type NUL > database\database.sqlite
+
+4. Start the application stack with Docker Compose (build if needed):
+
+   docker compose up -d --build
+
+5. Run one-time setup inside the app container (migrations, seeding, key):
+
+   docker compose exec app php artisan key:generate --ansi
+   docker compose exec app php artisan migrate --force
+
+6. Open the app in your browser:
+
+   http://localhost:8080
+
+Notes: the project uses `DB_CONNECTION=sqlite` by default for local development. If you prefer MySQL, update `.env` and ensure the `db` service is running.
+
+**Local development (without containers)**
+1. Install PHP, Composer, Node.js + npm on your host.
+2. Install PHP deps and JS deps:
+
+   composer install --prefer-dist --no-interaction
+   npm install
+   npm run dev
+
+3. Prepare `.env` and app key, then run migrations:
+
+   cp .env.example .env
+   php artisan key:generate
+   php artisan migrate
+
+4. Serve the app locally:
+
+   php artisan serve --host=0.0.0.0 --port=8000
+
+**Useful commands**
+- Tail logs: `docker compose logs -f`
+- Restart services: `docker compose restart`
+- Run artisan commands: `docker compose exec app php artisan <command>`
+
+**Deploy notes**
+- This README covers local/dev deployment. For production, use a proper orchestration and secrets management, run `composer install --no-dev`, and configure a production `docker-compose` or use your cloud provider.
+
+If you want, I can add environment-specific Compose files or CI/CD config for deployment.
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
